@@ -10,10 +10,13 @@ namespace offset_1
 
 void bhop()
 {
-	const auto client = reinterpret_cast<std::uintptr_t>(GetModuleHandle("client.dll"));
-
 	while (true)
 	{
+		const auto client = reinterpret_cast<std::uintptr_t>(GetModuleHandle("client.dll"));
+
+		if (!client)
+			continue;
+
 		if (!GetAsyncKeyState(VK_SPACE))
 			continue;
 
